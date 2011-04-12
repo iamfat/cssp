@@ -1,0 +1,4 @@
+include “cssp.php”;
+
+$css = file_get_contents('path/to/file.css');
+echo CSSP::fragment($css)->format();
