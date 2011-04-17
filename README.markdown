@@ -1,28 +1,32 @@
-= Usage
+# Usage
 	include “cssp.php”;
 	$css = file_get_contents('path/to/file.css');
 	echo CSSP::fragment($css)->format(CSSP::FORMAT_NOCOMMENTS);  // CSSP::FORMAT_NOCOMMENTS || CSSP::FORMAT_MINIFY
 
-= Syntax
-== Variables
+# Syntax
+## Variables
 BEFORE
+
 	@css-define lightblue:"#336699";
 	.text {
 		color: $lightblue;
 	}
 
 AFTER
+
 	.text {
 		color: #336699;
 	}
 
 
-== CSS3 Patch
+## CSS3 Patch
 BEFORE
+
 	div { border-radius: 3px; }
 	div.test {border-radius: 3px 3px 0 0; }
 
 AFTER
+
 	div {
 		-webkit-border-radius: 3px;
 		-moz-border-radius: 3px;
@@ -38,8 +42,9 @@ AFTER
 		border-radius: 3px 3px 0 0;
 	}
 
-== Nested Rules
+## Nested Rules
 BEFORE
+
 	#header, #footer {
 	  color: red;
 	  a {
@@ -50,7 +55,9 @@ BEFORE
 		}
 	  }
 	}
+
 AFTER
+
 	#header, #footer {
 		color: red;
 	}
